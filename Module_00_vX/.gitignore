@@ -1,0 +1,12 @@
+.env
+
+*/__pycache__
+
+*.dSYM
+
+*.o
+*.a
+*.sw*
+
+.DS_Store
+.vscode
