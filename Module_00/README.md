@@ -28,6 +28,10 @@ Checking changes: 'trust' for 'md5' in pg_hba.conf
 
 Open a window in your browesr:
     http://localhost:5050
+    http://localhost:5901
+    http://localhost:5900
+
+
 
 Register a SERVER in pgAdmin:
     Server / Register / Server 
