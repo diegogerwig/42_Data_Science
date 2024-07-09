@@ -39,7 +39,7 @@ services:
 
 volumes:
   postgres_data:
-  # pgadmin_data:
+  # pgadmin_data:c
 
 # networks:
 #   my_network:
