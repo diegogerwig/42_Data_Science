@@ -1,9 +1,9 @@
-all: init_docker
+all: init
 
 start:
 	@echo "🟢 Starting Docker"
 	docker-compose up -d
-	docker exec -it data_science_postgres psql -U postgres -c '\du'
+	# docker exec -it data_science_postgres psql -U postgres -c '\du'
 
 restart:
 	@echo "🟢 Restarting Docker"
@@ -13,16 +13,18 @@ stop:
 	@echo "🔴 Stopping Docker"
 	docker-compose down
 
-init_docker:
+init:
 	@echo "🟢 Starting Docker"
 	docker-compose up -d --remove-orphans
 	@echo "⏳ Waiting for Postgres to be ready..."
-	@while ! docker exec data_science_postgres pg_isready -h localhost -p 5432; do sleep 1; done
-	@echo "🔄 Postgres is ready. Executing SQL script..."
-	# docker exec -i pgadmin bash -c "PGPASSWORD='userpw' psql -h postgres -U dgerwig -d piscineds -f /scripts/create_connection.sql"
+	@while ! docker exec postgres pg_isready -h localhost -p 5432; do sleep 1; done
+	@echo "🔄 Postgres is ready"
+	docker exec -i postgres sed -i 's/trust/md5/g' /var/lib/postgresql/data/pg_hba.conf
+	docker exec -it postgres bash -c "psql -U dgerwig -d piscineds -h localhost -W"
+	# docker exec -it postgres bash
 	# docker exec -i pgadmin bash -c "cat /scripts/create_connection.sql | psql -h postgres -U postgres"
 	# docker exec -it data_science_postgres sed -i 's/trust/md5/g' /var/lib/postgresql/data/pg_hba.conf
-	docker exec -it data_science_postgres bash
+	# docker exec -i pgadmin bash -c "psql -h postgres -U dgerwig -d piscineds -f /scripts/create_connection.sql"
 
 clean:
 	@echo "🟡 Cleaning files & dir"
@@ -37,4 +39,4 @@ fclean: stop clean
 
 re:	fclean all
 
-phony: all clean fclean re start restart stop init_docker
+phony: all clean fclean re start restart stop init

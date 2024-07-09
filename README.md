@@ -1,4 +1,6 @@
-# DATA SCIENCE   LOGISTIC REGRESSION
+# DATA SCIENCE -> DATA ENGINEER
+
+---
 
 ##  EX 00  
 
@@ -17,13 +19,12 @@ Execute:
 Checking changes: 'trust' for 'md5' in pg_hba.conf
     vim /var/lib/postgresql/data/pg_hba.conf
 
+---
 
 ##  EX 01 
 
 Open a window in your browesr:
     http://localhost:5050
-    http://localhost:5901
-    http://localhost:5900
 
 Register a SERVER in pgAdmin:
     Server / Register / Server 
@@ -36,6 +37,7 @@ Register a SERVER in pgAdmin:
             Username: POSTGRES_USER (data from docker-compose)
             Password: POSTGRES_PASSWORD (data from docker-compose)
 
+---
 
 ##  EX 02  
 
@@ -46,22 +48,23 @@ Active virtual environment
 Execute:
     python3 ex02/table.py
 
+---
 
 ##  EX 03  
 
 Execute:
     python3 ex03/automatic_table.py
 
+---
 
 ##  EX 04  
 
 Execute:
     python3 ex04/items_table.py
 
-
+---
 
 ### INFO   
-
 
 Config data base in pgAdmin:
     https://www.youtube.com/watch?v=uKlRp6CqpDg

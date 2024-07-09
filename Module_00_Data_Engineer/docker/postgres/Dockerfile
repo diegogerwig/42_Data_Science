@@ -1,6 +1,4 @@
-FROM postgres:15.0
-
-# EXPOSE 5432
+FROM postgres:16
 
 RUN apt update && apt install -y \
     vim
