@@ -1,4 +1,4 @@
-FROM postgres:16
+FROM postgres:15
 
 RUN apt update && apt install -y \
     vim

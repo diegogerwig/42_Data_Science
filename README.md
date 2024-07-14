@@ -23,7 +23,10 @@ Checking changes: 'trust' for 'md5' in pg_hba.conf
 
 ##  EX 01 
 
-Open a window in your browesr:
+Open a new terminal to visualize docker logs:
+    docker logs -f pgadmin
+
+Open a window in your browser:
     http://localhost:5050
 
 Register a SERVER in pgAdmin:
